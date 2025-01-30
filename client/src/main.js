@@ -11,7 +11,7 @@ function handleSubmit (event) {
   const commentData = Object.fromEntries(formData)
   console.log(commentData)
 
-  fetch('http://localhost:6060/guestbook',{
+  fetch('https://week-3-project-server.onrender.com/guestbook',{
     method: 'POST',
     headers: {
       "Content-type": "application/json",
@@ -33,21 +33,30 @@ fetchCommentData()
 
 function generateCommentBox(dataToRender) {
   for (let i = 0; i < dataToRender.length; i++) {
+    
     const eachCommentElem = document.createElement('div');
     eachCommentElem.setAttribute('class', 'commentItem')
-    const nameElem = document.createElement('p')
-    nameElem.setAttribute('class', 'commentName')
-    const commentElem = document.createElement('p')
-    
 
+    const nameElem = document.createElement('p')
+    const commentElem = document.createElement('p')
+    const deleteButton = document.createElement('button')
+    
     nameElem.innerText = dataToRender[i].name
     commentElem.innerText = dataToRender[i].comment
+    deleteButton.innerText = 'x'
+    nameElem.setAttribute('class', 'commentName')
+    deleteButton.setAttribute('class', 'deleteButton')
     
-
-    
+    eachCommentElem.appendChild(deleteButton)
     eachCommentElem.appendChild(nameElem)
     eachCommentElem.appendChild(commentElem)
     
     commentContainer.appendChild(eachCommentElem)
+
+    deleteButton.addEventListener('click', handleClick)
+
+    function handleClick() {
+
+    }
   }
 }

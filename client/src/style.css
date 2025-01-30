@@ -30,6 +30,12 @@ body {
     font-weight: bold;
 }
 
+.deleteButton {
+    width: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 p {
     padding: 5px;
     margin: 0;
@@ -76,15 +82,15 @@ input {
     width: 150px;
 }
 
-button {
+#submit {
     width: 60px;
     border-radius: 7px;
 }
 
-button:hover {
+#submit:hover {
     background-color: grey;
 }
 
-button:active {
+#submit:active {
     transform: translateY(10px);
 }
