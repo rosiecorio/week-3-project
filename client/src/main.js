@@ -44,6 +44,6 @@ function generateCommentBox(dataToRender) {
     eachCommentElem.appendChild(nameElem)
     eachCommentElem.appendChild(commentElem)
     
-    commentContainer.appendChild(eachCommentElemElem)
+    commentContainer.appendChild(eachCommentElem)
   }
 }
