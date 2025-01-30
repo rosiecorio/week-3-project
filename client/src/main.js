@@ -26,12 +26,12 @@ async function fetchCommentData() {
   generateCommentBox(data)
 }
 
-fetchShopData()
+fetchCommentData()
 
 function generateCommentBox(dataToRender) {
   for (let i = 0; i < dataToRender.length; i++) {
     const eachCommentElem = document.createElement('div');
-    containerElem.setAttribute('class', 'shopItem')
+    containerElem.setAttribute('class', 'commentItem')
     const nameElem = document.createElement('p')
     const commentElem = document.createElement('p')
     
