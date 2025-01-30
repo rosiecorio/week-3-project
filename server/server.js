@@ -32,3 +32,10 @@ app.post('/guestbook', async (request, response) => {
 app.listen('8080', () => {
     console.log('Server is running on http://localhost:8080')
 })
+
+/* await fetch(`${api_url}/books`, {
+    "headers"  { 
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+}*/
