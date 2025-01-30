@@ -29,8 +29,8 @@ app.post('/guestbook', async (request, response) => {
     response.json(data)
 })
 
-app.listen('8080', () => {
-    console.log('Server is running on http://localhost:8080')
+app.listen('6060', () => {
+    console.log('Server is running on http://localhost:6060')
 })
 
 /* await fetch(`${api_url}/books`, {
