@@ -18,6 +18,9 @@ function handleSubmit (event) {
     },
     body: JSON.stringify(commentData)
   })
+
+  //add update function to put new comment
+  //on the page when it is submitted.
 }
 
 async function fetchCommentData() {
@@ -33,6 +36,7 @@ function generateCommentBox(dataToRender) {
     const eachCommentElem = document.createElement('div');
     eachCommentElem.setAttribute('class', 'commentItem')
     const nameElem = document.createElement('p')
+    nameElem.setAttribute('class', 'commentName')
     const commentElem = document.createElement('p')
     
 
