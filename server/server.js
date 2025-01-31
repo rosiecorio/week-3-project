@@ -37,7 +37,7 @@ app.put('/guestbook/:id', async (request, response) => {
 
 app.delete('/guestbook/:id', async (request, response) => {
     console.log(request.params.id)
-    const response = await db.query(`DELETE FROM guestcomments WHERE id=$1`, [req.params.id])
+    const deleted = await db.query(`DELETE FROM guestcomments WHERE id=$1`, [req.params.id])
     response.send(request.params.id)
 })
 
