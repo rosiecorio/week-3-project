@@ -25,7 +25,7 @@ app.get('/guestbook', async (request, response) => {
 app.post('/guestbook', async (request, response) => {
     const nameFromClient = request.body.name
     const commentFromClient = request.body.comment
-    const data = await db.query(`INSERT INTO guestcomments (name, comment) VALUES ('${nameFromClient}', '${commentFromClient}')`)
+    const data = await db.query(`INSERT INTO guestcomments (name, comment) VALUES ('$1', '$2')`, [nameFromClient, commentFromClient])
     response.json(data)
 })
 

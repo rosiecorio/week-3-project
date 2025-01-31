@@ -11,7 +11,7 @@ function handleSubmit (event) {
   const commentData = Object.fromEntries(formData)
   console.log(commentData)
 
-  fetch('http://localhost:6060/guestbook',{
+  fetch('https://week-3-project-server.onrender.com/guestbook',{
     method: 'POST',
     headers: {
       "Content-type": "application/json",
@@ -25,7 +25,7 @@ function handleSubmit (event) {
 }
 
 async function fetchCommentData() {
-  const response = await fetch('http://localhost:6060/guestbook')
+  const response = await fetch('https://week-3-project-server.onrender.com/guestbook')
   const data = await response.json()
   generateCommentBox(data)
 }
@@ -60,7 +60,7 @@ function generateCommentBox(dataToRender) {
     })
 
     async function handleDelete(id) {
-      const response = await fetch(`http://localhost:6060/guestbook/${id}`, {
+      const response = await fetch(`https://week-3-project-server.onrender.com/guestbook${id}`, {
         method: 'DELETE'
       })
       if (response.ok) {
