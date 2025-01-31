@@ -33,7 +33,7 @@ async function fetchCommentData() {
 fetchCommentData()
 
 function generateCommentBox(dataToRender) {
-  
+  commentContainer.innerHTML = ''
   for (let i = 0; i < dataToRender.length; i++) {
     
     const eachCommentElem = document.createElement('div');
@@ -60,11 +60,11 @@ function generateCommentBox(dataToRender) {
     })
 
     async function handleDelete(id) {
-      const response = await fetch(`https://week-3-project-server.onrender.com/guestbook/${id}`, {
+      const response = await fetch(`http://localhost:6060/guestbook/${id}`, {
         method: 'DELETE'
       })
       if (response.ok) {
-        generateCommentBox()
+        fetchCommentData()
       }
     }
   }
