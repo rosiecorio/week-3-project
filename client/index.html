@@ -8,8 +8,11 @@
     <script type="module" src="/src/main.js" defer></script>
   </head>
   <body>
+    <div class="content">
+      <p id="title">Name that Cat</p>
+    </div>
     <form id="myForm">
-      <label class="nameLabel" for="name">Your Name:</label>
+      <label class="nameLabel" for="name">Name:</label>
       <input type="text" name="name" id="nameInput">
       
       <label for="comment">Your Comment:</label>
@@ -17,7 +20,6 @@
       <button id="submit" type="submit">Submit</button>
     </form>
     <div id="app">
-      <div class="content"></div>
       <div id="commentContainer"></div>
     </div>
   </body>

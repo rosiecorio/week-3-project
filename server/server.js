@@ -44,10 +44,3 @@ app.delete('/guestbook/:id', async (request, response) => {
 app.listen('6060', () => {
     console.log('Server is running on http://localhost:6060')
 })
-
-/* await fetch(`${api_url}/books`, {
-    "headers"  { 
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-}*/

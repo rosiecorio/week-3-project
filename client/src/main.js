@@ -70,15 +70,20 @@ function generateCommentBox(dataToRender) {
   }
 }
 
-
 /* TODAYS GOALS:
 - Add function to update page to show new comment 
 when it's submitted. -- DONE
 
-- Decide on theming for page and functions
+- Decide on theming for page and functions -- DONE
 
-- Get delete -- DONE and put methods to work
+- Get delete -- DONE
+&
+- Put methods to work
 
-- Styling and design on PHONE first.
+- Styling and design on PHONE first. -- DONE
+
+- Add like button and edit button.
+
+- Could add drop-down input for people to review e.g. types of cat, games, food etc.
 
 */
