@@ -29,17 +29,17 @@ app.post('/guestbook', async (request, response) => {
     response.json(data)
 })
 
-// app.put('/guestbook/:id', async (request, response) => {
-//     console.log(request.params.id, request.body)
-//     const update = await db.query(`UPDATE guestcomments SET name=$1, comment=$2 WHERE id=$3` [request.body.name, request.body.comment, request.params.id])
-//     response.json({params: request.params.id})
-// })
+app.put('/guestbook/:id', async (request, response) => {
+    console.log(request.params.id, request.body)
+    const update = await db.query(`UPDATE guestcomments SET name=$1, comment=$2 WHERE id=$3` [request.body.name, request.body.comment, request.params.id])
+    response.json({params: request.params.id, body: req.body})
+})
 
-// app.delete('/guestbook/:id', async (request, response) => {
-//     console.log(request.params.id)
-//     const response = await db.query(`DELETE FROM guestcomments WHERE id=$1`, [req.params.id])
-//     response.send(request.params.id)
-// })
+app.delete('/guestbook/:id', async (request, response) => {
+    console.log(request.params.id)
+    const response = await db.query(`DELETE FROM guestcomments WHERE id=$1`, [req.params.id])
+    response.send(request.params.id)
+})
 
 app.listen('6060', () => {
     console.log('Server is running on http://localhost:6060')

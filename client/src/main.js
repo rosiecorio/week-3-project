@@ -33,6 +33,7 @@ async function fetchCommentData() {
 fetchCommentData()
 
 function generateCommentBox(dataToRender) {
+  
   for (let i = 0; i < dataToRender.length; i++) {
     
     const eachCommentElem = document.createElement('div');
@@ -54,18 +55,25 @@ function generateCommentBox(dataToRender) {
     
     commentContainer.appendChild(eachCommentElem)
 
-    //deleteButton.addEventListener('click', handleClick)
+    deleteButton.addEventListener('click', () => {
+      handleDelete(dataToRender[i].id)
+    })
 
-    //function handleClick() {
-
+    async function handleDelete(id) {
+      const response = await fetch(`https://week-3-project-server.onrender.com/guestbook/${id}`, {
+        method: 'DELETE'
+      })
+      if (response.ok) {
+        generateCommentBox()
+      }
     }
   }
-//}
+}
 
 
 /* TODAYS GOALS:
 - Add function to update page to show new comment 
-when it's submitted.
+when it's submitted. -- DONE
 
 - Decide on theming for page and functions
 
