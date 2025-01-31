@@ -25,20 +25,25 @@ app.get('/guestbook', async (request, response) => {
 app.post('/guestbook', async (request, response) => {
     const nameFromClient = request.body.name
     const commentFromClient = request.body.comment
-    const data = await db.query(`INSERT INTO guestcomments (name, comment) VALUES ('$1', '$2')`, [nameFromClient, commentFromClient])
+    console.log(request.body);
+    const data = await db.query(`INSERT INTO guestcomments (name, comment) VALUES ($1, $2)`, [nameFromClient, commentFromClient])
     response.json(data)
 })
 
-app.put('/guestbook/:id', async (request, response) => {
-    console.log(request.params.id, request.body)
-    const update = await db.query(`UPDATE guestcomments SET name=$1, comment=$2 WHERE id=$3` [request.body.name, request.body.comment, request.params.id])
-    response.json({params: request.params.id, body: req.body})
-})
+// app.put('/guestbook/:id', async (request, response) => {
+//     console.log(request.params.id, request.body)
+//     const update = await db.query(`UPDATE guestcomments SET name=$1, comment=$2 WHERE id=$3` [request.body.name, request.body.comment, request.params.id])
+//     response.json({params: request.params.id, body: req.body})
+// })
 
 app.delete('/guestbook/:id', async (request, response) => {
-    console.log(request.params.id)
+    try{
+        console.log(request.params.id)
     const deleted = await db.query(`DELETE FROM guestcomments WHERE id=$1`, [request.params.id])
     response.send(request.params.id)
+    } catch (error) {
+        response.status(500).send(error.message)
+    }
 })
 
 app.listen('6060', () => {

@@ -20,8 +20,7 @@ function handleSubmit (event) {
   })
 
   fetchCommentData()
-  //add update function to put new comment
-  //on the page when it is submitted.
+  
 }
 
 async function fetchCommentData() {
