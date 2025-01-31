@@ -25,7 +25,7 @@ function handleSubmit (event) {
 }
 
 async function fetchCommentData() {
-  const response = await fetch('https://week-3-project-server.onrender.com/guestbook')
+  const response = await fetch('http://localhost:6060/guestbook')
   const data = await response.json()
   generateCommentBox(data)
 }
@@ -77,7 +77,7 @@ when it's submitted. -- DONE
 
 - Decide on theming for page and functions
 
-- Get delete and put methods to work
+- Get delete -- DONE and put methods to work
 
 - Styling and design on PHONE first.
 
