@@ -11,7 +11,7 @@ function handleSubmit (event) {
   const commentData = Object.fromEntries(formData)
   console.log(commentData)
 
-  fetch('https://week-3-project-server.onrender.com/guestbook',{
+  fetch('http://localhost:6060/guestbook',{
     method: 'POST',
     headers: {
       "Content-type": "application/json",
@@ -19,6 +19,7 @@ function handleSubmit (event) {
     body: JSON.stringify(commentData)
   })
 
+  fetchCommentData()
   //add update function to put new comment
   //on the page when it is submitted.
 }
@@ -53,10 +54,23 @@ function generateCommentBox(dataToRender) {
     
     commentContainer.appendChild(eachCommentElem)
 
-    deleteButton.addEventListener('click', handleClick)
+    //deleteButton.addEventListener('click', handleClick)
 
-    function handleClick() {
+    //function handleClick() {
 
     }
   }
-}
+//}
+
+
+/* TODAYS GOALS:
+- Add function to update page to show new comment 
+when it's submitted.
+
+- Decide on theming for page and functions
+
+- Get delete and put methods to work
+
+- Styling and design on PHONE first.
+
+*/
