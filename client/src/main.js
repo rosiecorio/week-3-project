@@ -42,14 +42,19 @@ function generateCommentBox(dataToRender) {
     const nameElem = document.createElement('p')
     const commentElem = document.createElement('p')
     const deleteButton = document.createElement('button')
+    const likeButton = document.createElement('button')
     
     nameElem.innerText = dataToRender[i].name
     commentElem.innerText = dataToRender[i].comment
     deleteButton.innerText = 'x'
+    likeButton.innerText = '💗'
+
     nameElem.setAttribute('class', 'commentName')
     deleteButton.setAttribute('class', 'deleteButton')
+    likeButton.setAttribute('class', 'likeButton')
     
     eachCommentElem.appendChild(deleteButton)
+    eachCommentElem.appendChild(likeButton)
     eachCommentElem.appendChild(nameElem)
     eachCommentElem.appendChild(commentElem)
     
@@ -67,23 +72,16 @@ function generateCommentBox(dataToRender) {
         fetchCommentData()
       }
     }
+
+    likeButton.addEventListener('click', () => {
+      
+    })
+
   }
 }
 
 /* TODAYS GOALS:
-- Add function to update page to show new comment 
-when it's submitted. -- DONE
-
-- Decide on theming for page and functions -- DONE
-
-- Get delete -- DONE
-&
 - Put methods to work
 
-- Styling and design on PHONE first. -- DONE
-
 - Add like button and edit button.
-
-- Could add drop-down input for people to review e.g. types of cat, games, food etc.
-
 */

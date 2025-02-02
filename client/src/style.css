@@ -74,8 +74,16 @@ img {
     border-radius: 10px;
     right: 3px;
     margin: 0;
-    background-color: #f8b6da;
-    
+    background-color: #ffc6d8;
+}
+
+.likeButton {
+    background-color: #ffc6d8;
+    border: hidden;
+    border-radius: 10px;
+    position: absolute;
+    right: -9px;
+    bottom: 0px;
 }
 
 p {
