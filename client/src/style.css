@@ -32,10 +32,17 @@ img {
     width: 400px;
 }
 
+#app {
+    display: flex;
+    justify-content: center;
+}
+
 #commentContainer {
     display: flex;
     justify-content: center;
     overflow-x: scroll;  
+    width: 700px;
+    margin-top: 30px;
 }
 
 .commentItem {
@@ -109,7 +116,6 @@ input {
     border-radius: 5px;
     height: 30px;
     overflow: visible;
-    
 }
 
 #nameInput {
@@ -118,7 +124,6 @@ input {
 }
 
 #commentInput {
-    /* height: 100px; */
     width: 150px;
 }
 
@@ -133,4 +138,36 @@ input {
 
 #submit:active {
     transform: translateY(3px);
+}
+
+@media (min-width: 800px) {
+    .commentItem {
+        height: 100px;
+        font-size: 15px;
+    }
+
+    .content {
+        width: 600px;
+        justify-self: center;
+        border-radius: 20px;
+        height: 500px;
+        background-size: 600px;
+    }
+
+    form {
+        position: absolute;
+        right: 90px;
+        top: 26px;
+        height: 200px;
+    }
+
+    #nameInput {
+        width: 150px;
+        height: 15px;
+    }
+    
+    #commentInput {
+        /* height: 100px; */
+        width: 200px;
+    }
 }
