@@ -74,14 +74,22 @@ function generateCommentBox(dataToRender) {
     }
 
     likeButton.addEventListener('click', () => {
-      
+      handleLike(dataToRender[i].likes)
     })
 
+    async function handleLike(likes) {
+      const response = await fetch(`http://localhost:6060/guestbook/${likes}`, {
+      method: 'PUT'
+      }) 
+      if (response.ok) {
+        fetchCommentData()
+      }
+    }
   }
 }
 
 /* TODAYS GOALS:
 - Put methods to work
 
-- Add like button and edit button.
-*/
+- Add like button and edit button. */
+
