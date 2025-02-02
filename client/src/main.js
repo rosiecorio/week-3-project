@@ -2,7 +2,7 @@ const myForm = document.getElementById('myForm')
 const nameInput = document.getElementById('nameInput')
 const commentInput = document.getElementById('commentInput')
 const commentContainer = document.getElementById('commentContainer')
-const apiUrl = 'http://localhost:6060/guestbook'
+const likesContainer = document.getElementById('likesContainer')
 
 myForm.addEventListener('submit', handleSubmit)
 
@@ -12,7 +12,7 @@ function handleSubmit (event) {
   const commentData = Object.fromEntries(formData)
   console.log(commentData)
 
-  fetch('http://localhost:6060/guestbook',{
+  fetch('https://week-3-project-server.onrender.com/guestbook',{
     method: 'POST',
     headers: {
       "Content-type": "application/json",
@@ -25,7 +25,7 @@ function handleSubmit (event) {
 }
 
 async function fetchCommentData() {
-  const response = await fetch('http://localhost:6060/guestbook')
+  const response = await fetch('https://week-3-project-server.onrender.com/guestbook')
   const data = await response.json()
   generateCommentBox(data)
 }
@@ -42,19 +42,16 @@ function generateCommentBox(dataToRender) {
     const nameElem = document.createElement('p')
     const commentElem = document.createElement('p')
     const deleteButton = document.createElement('button')
-    const likeButton = document.createElement('button')
     
     nameElem.innerText = dataToRender[i].name
     commentElem.innerText = dataToRender[i].comment
     deleteButton.innerText = 'x'
-    likeButton.innerText = '💗'
 
     nameElem.setAttribute('class', 'commentName')
     deleteButton.setAttribute('class', 'deleteButton')
-    likeButton.setAttribute('class', 'likeButton')
-    
+        
     eachCommentElem.appendChild(deleteButton)
-    eachCommentElem.appendChild(likeButton)
+    
     eachCommentElem.appendChild(nameElem)
     eachCommentElem.appendChild(commentElem)
     
@@ -65,22 +62,9 @@ function generateCommentBox(dataToRender) {
     })
 
     async function handleDelete(id) {
-      const response = await fetch(`http://localhost:6060/guestbook/${id}`, {
+      const response = await fetch(`https://week-3-project-server.onrender.com/guestbook/${id}`, {
         method: 'DELETE'
       })
-      if (response.ok) {
-        fetchCommentData()
-      }
-    }
-
-    likeButton.addEventListener('click', () => {
-      handleLike(dataToRender[i].likes)
-    })
-
-    async function handleLike(likes) {
-      const response = await fetch(`http://localhost:6060/guestbook/${likes}`, {
-      method: 'PUT'
-      }) 
       if (response.ok) {
         fetchCommentData()
       }

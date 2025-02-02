@@ -81,9 +81,21 @@ img {
     background-color: #ffc6d8;
     border: hidden;
     border-radius: 10px;
-    position: absolute;
+    /* position: absolute;
     right: -9px;
+    bottom: 0px; */
+}
+
+/* .likeNumber {
+    position: absolute;
     bottom: 0px;
+    right: 0px;
+} */
+
+#likesContainer {
+    display: flex;
+    width: 20px;
+    height: 20px;
 }
 
 p {
@@ -150,7 +162,7 @@ input {
 
 @media (min-width: 800px) {
     .commentItem {
-        height: 100px;
+        height: 150px;
         font-size: 15px;
     }
 
